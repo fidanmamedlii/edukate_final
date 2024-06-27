@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{dashboard/fragments/layout}">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin Panel</title>
+  <!-- Add your CSS stylesheets here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 1.5rem;
+    }
+    .card-text {
+      font-size: 1.1rem;
+    }
+    .btn-custom {
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #003366; /* Dark Blue Button */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background-color: #002244; /* Darker Blue on hover */
+    }
+  </style>
+</head>
+
+<body>
+<main layout:fragment="MainContent">
+  <div class="container">
+    <h1 class="text-center mb-5">Welcome to the Admin Panel</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-chalkboard-teacher mr-2"></i>Instructors</h5>
+            <p class="card-text">Manage instructors and related data.</p>
+            <a href="/admin/instructors" class="btn btn-custom btn-block">Go to Instructors</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-book-open mr-2"></i>Courses</h5>
+            <p class="card-text">Manage courses and related data.</p>
+            <a href="/admin/courses" class="btn btn-custom btn-block">Go to Courses</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-comment-dots mr-2"></i>Testimonials</h5>
+            <p class="card-text">Manage testimonials and related data.</p>
+            <a href="/admin/testimonials" class="btn btn-custom btn-block">Go to Testimonials</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Students</h5>
+            <p class="card-text">Manage students and related data.</p>
+            <a href="/admin/students" class="btn btn-custom btn-block">Go to Students</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add Department Card -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-building mr-2"></i>Departments</h5>
+            <p class="card-text">Manage departments and related data.</p>
+            <a href="/admin/departments" class="btn btn-custom btn-block">Go to Departments</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add Messages Card -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-envelope mr-2"></i>Messages</h5>
+            <p class="card-text">Manage messages and related data.</p>
+            <a href="/admin/messages" class="btn btn-custom btn-block">Go to Messages</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add User Card -->
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-user mr-2"></i>Roles</h5>
+            <p class="card-text">Manage users and related data.</p>
+            <a href="/admin/users" class="btn btn-custom btn-block">Go to Users</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Add your JavaScript scripts here -->
+</body>
+
+</html>

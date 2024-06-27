@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{dashboard/fragments/layout}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- End layout styles -->
+</head>
+
+<body>
+<main layout:fragment="MainContent">
+    <div class="container-scroller">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/admin}">Admin Panel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <!-- Page content -->
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Update Course</h5>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/admin/courses/update}" th:object="${course}" method="post">
+                                <input type="hidden" th:field="*{id}">
+
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Course Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" th:field="*{name}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="3" th:field="*{description}"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Image URL</label>
+                                    <input type="text" class="form-control" id="image" name="image" th:field="*{image}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="durationTime" class="form-label">Duration Time</label>
+                                    <input type="text" class="form-control" id="durationTime" name="durationTime" th:field="*{durationTime}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="lectureCount" class="form-label">Lecture Count</label>
+                                    <input type="number" class="form-control" id="lectureCount" name="lectureCount" th:field="*{lectureCount}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="skillLevel" class="form-label">Skill Level</label>
+                                    <input type="text" class="form-control" id="skillLevel" name="skillLevel" th:field="*{skillLevel}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="language" class="form-label">Language</label>
+                                    <input type="text" class="form-control" id="language" name="language" th:field="*{language}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Price</label>
+                                    <input type="number" step="0.01" class="form-control" id="price" name="price" th:field="*{price}">
+                                </div>
+
+                                <!-- Add Department and Instructor fields -->
+                                <div class="mb-3">
+                                    <label for="department" class="form-label">Department</label>
+                                    <select class="form-control" id="department" name="department.id" required>
+                                        <option th:each="dept : ${departments}" th:value="${dept.id}"
+                                                th:selected="${course.department.id == dept.id}">
+                                            <span th:text="${dept.name}"></span>
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="instructor" class="form-label">Instructor</label>
+                                    <select class="form-control" id="instructor" name="instructor.id" required>
+                                        <option th:each="inst : ${instructors}" th:value="${inst.id}"
+                                                th:selected="${course.instructor.id == inst.id}">
+                                            <span th:text="${inst.name}"></span>
+                                        </option>
+                                    </select>
+                                </div>
+                                <!-- End of Department and Instructor fields -->
+
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="button" class="btn btn-secondary" onclick="window.history.back();">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page content -->
+    </div>
+</main>
+</body>
+</html>
